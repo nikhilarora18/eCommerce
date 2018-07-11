@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{% if object.image %}
+<img src="{{ object.image.url }}" class="img-fluid">
+{% endif %}
+{{ object.title }}            <!--class based views automatically take object with that pk and name it "object"!-->
+<br>
+{{ object.description }}
+{% endblock %}

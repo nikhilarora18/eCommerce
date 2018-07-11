@@ -6,7 +6,7 @@
     {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{ instance.title }}</h5>
-    <p class="card-text">{{ instance.description }}</p>
+    <p class="card-text">{{ instance.description }}<br>Rs. {{ instance.price }}</p>
     <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">View it</a>
   </div>
 </div>

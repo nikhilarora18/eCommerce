@@ -9,13 +9,13 @@ class ContactForm(forms.Form):
     content=forms.CharField(widget=forms.Textarea(attrs={"class":"form-control" , "placeholder":"Your Content"}))
 
 class LoginForm(forms.Form):
-    username=forms.CharField()
-    password=forms.CharField(widget=forms.PasswordInput())
+    username=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control" , "placeholder":"Your Full Name"}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control" , "placeholder":"Password"}))
 
 class RegisterForm(forms.Form):
-    username=forms.CharField()
-    password=forms.CharField(widget=forms.PasswordInput())
-    password2=forms.CharField(label="Confirm Password" , widget=forms.PasswordInput())
+    username=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control" , "placeholder":"Your Full Name"}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control" , "placeholder":"Password"}))
+    password2=forms.CharField(label="Confirm Password" , widget=forms.PasswordInput(attrs={"class":"form-control" , "placeholder":"Confirm your Password"}))
     email=forms.EmailField(widget=forms.EmailInput(attrs={"class":"form-control" , "placeholder":"Your Email"}))
 
     class Meta():

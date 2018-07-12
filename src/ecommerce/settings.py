@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #our apps
-    'products',
+    'products','search',
 ]
 
 MIDDLEWARE = [

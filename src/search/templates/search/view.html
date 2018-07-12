@@ -3,16 +3,19 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mb-3">
-            Searched for item "<b>{{ request.GET.q }}</b>"
+            Searched for item "<b>{{ query }}</b>"
             <hr>
         </div>
+        {% if object_list.count == 0 %}
+        No items matched your search query
+        {% else %}
         {% for obj in object_list %}
         <div class="col">
             {% include 'products/snippets/card.html' with instance=obj %}
         </div>
 
-
 {% endfor %}
+        {% endif %}
         </div>
     </div>
 {% endblock %}

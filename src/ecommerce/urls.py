@@ -3,8 +3,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
-from django.conf.urls import url
 from . import views
+from carts.views import cart_home
 #from products.views import ProductListView , ProductDetailView , ProductFeaturedListView , ProductFeaturedDetailView , ProductDetailSlugView
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     path('', views.home,name='home'),
     path('about/', views.about,name='about'),
     path('login/', views.login_page,name='login'),
+    path('cart/', cart_home,name='cart'),
     path('register/', views.register_page,name='register'),
     path('contact/', views.contact,name='contact'),
     path('products/', include(('products.urls','products'),namespace='products')),

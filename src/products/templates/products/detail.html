@@ -3,14 +3,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-{% if object.image %}
-<img src="{{ object.image.url }}" class="img-fluid">
-{% endif %}
+        <div class="col-12 col-md-6">
+            {% if object.image %}
+                <img src="{{ object.image.url }}" class="img-fluid">
+            {% endif %}
             <h1>{{ object.title }}</h1> <!--class based views automatically take object with that pk and name it "object"!-->
             {{ object.timestamp | timesince }} ago
             {{ object.description|linebreaks }}
+        </div>
+        <div class="col-12 col-md-6">
+            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+
+        </div>
     </div>
-    </div>
-    </div>
+</div>
 {% endblock %}

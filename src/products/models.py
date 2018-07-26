@@ -57,6 +57,10 @@ class Product(models.Model):
 
     objects=ProductManager()
 
+    @property
+    def name(self):
+        return self.title
+
     def get_absolute_url(self):
         #return "/products/{slug}/".format(slug=self.slug)
         return reverse('products:details', kwargs={"slug":self.slug})

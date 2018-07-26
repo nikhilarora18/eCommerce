@@ -1,5 +1,6 @@
 {% url 'home' as home_url %}
 {% url 'products:list' as product_url %}
+{% url 'cart:home' as cart_url %}
 {% url 'contact' as contact_url %}
 {% url 'login' as login_url %}
 {% url 'register' as register_url %}
@@ -33,6 +34,9 @@
       </li>
       <li class="nav-item {% if request.path == product_url %}active{% endif %}">
         <a class="nav-link" href="{{ product_url }}">Products</a>
+      </li>
+      <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+        <a class="nav-link" href="{{ cart_url }}"><i class="fas fa-shopping-cart"></i> ({{ request.session.cart_items }})</a>
       </li>
     </ul>
     {% include 'search/snippets/search-form.html' %}

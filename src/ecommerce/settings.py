@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #our apps
-    'products','search','tags','carts',
+    'products','search','tags','carts','orders','accounts'
 ]
+
+LOGOUT_REDIRECT_URL='/login/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

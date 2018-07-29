@@ -3,10 +3,9 @@
 <div class="container">
     <div class="row">
         {% for obj in object_list %}
-        <div class="col">
+        <div class="col" style="margin:10px">
             {% include 'products/snippets/card.html' with instance=obj %}
         </div>
-
 
 {% endfor %}
 

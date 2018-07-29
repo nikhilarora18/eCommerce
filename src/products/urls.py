@@ -1,6 +1,7 @@
 
 from django.urls import path
 from .views import ProductListView , ProductDetailView , ProductFeaturedListView , ProductFeaturedDetailView , ProductDetailSlugView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
 

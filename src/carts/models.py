@@ -21,6 +21,7 @@ class CartManager(models.Manager):
             new_obj = False
             request.session['cart_id'] = cart_obj.id
         return cart_obj,new_obj
+
     def new(self,user=None):
         user_obj=None
         if user is not None:

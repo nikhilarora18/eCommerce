@@ -3,7 +3,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth.views import LogoutView
 from . import views
+from accounts.views import login_page,register_page
 
 #from products.views import ProductListView , ProductDetailView , ProductFeaturedListView , ProductFeaturedDetailView , ProductDetailSlugView
 
@@ -11,9 +13,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name='home'),
     path('about/', views.about,name='about'),
-    path('login/', views.login_page,name='login'),
-    path('register/', views.register_page,name='register'),
+    path('login/', login_page,name='login'),
+    path('logout/', LogoutView.as_view(),name='logout'),
+    path('register/', register_page,name='register'),
     path('contact/', views.contact,name='contact'),
+
     path('products/', include(('products.urls','products'),namespace='products')),
     path('cart/', include(('carts.urls','carts'),namespace='cart')),
     path('search/', include(('search.urls','search'),namespace='search')),

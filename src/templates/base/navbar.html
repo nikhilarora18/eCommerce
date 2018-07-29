@@ -3,6 +3,7 @@
 {% url 'cart:home' as cart_url %}
 {% url 'contact' as contact_url %}
 {% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
 {% url 'register' as register_url %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
   <div class="container">
@@ -25,8 +26,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% if request.user.is_authenticated %}
-          <a class="dropdown-item" href="{% url 'login' %}">Logout</a>
-          <!--<a class="dropdown-item" href="{% url 'register' %}">Register</a>-->
+          <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
           {% else %}
             <a class="dropdown-item" href="{% url 'login' %}">Login</a>
           <a class="dropdown-item" href="{% url 'register' %}">Register</a>
@@ -36,7 +36,7 @@
         <a class="nav-link" href="{{ product_url }}">Products</a>
       </li>
       <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
-        <a class="nav-link" href="{{ cart_url }}"><i class="fas fa-shopping-cart"></i> ({{ request.session.cart_items }})</a>
+        <a class="nav-link" href="{{ cart_url }}"><i class="fab fa-opencart"></i> ({{ request.session.cart_items }})</a>
       </li>
     </ul>
     {% include 'search/snippets/search-form.html' %}

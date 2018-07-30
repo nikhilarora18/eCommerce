@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #our apps
-    'products','search','tags','carts','orders','accounts'
+    'products','search','tags','carts','orders','accounts','billing'
 ]
 
 LOGOUT_REDIRECT_URL='/login/'

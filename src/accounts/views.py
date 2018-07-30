@@ -9,8 +9,8 @@ def login_page(request):
     context = {
         "form": form
     }
-    next_ = request.GET.get('name')
-    next_post = request.POST.get('name')
+    next_ = request.GET.get('next')
+    next_post = request.POST.get('next')
     print(next_,next_post)
     redirect_path=next_ or next_post or None
     if form.is_valid():

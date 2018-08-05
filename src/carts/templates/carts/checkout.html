@@ -4,23 +4,29 @@
 {{ object.order_id }}--{{ object.cart }}
 
 {% if billing_profile %}
-<h1>Checkout</h1>
-<p>Cart Total = {{ object.cart.total }}</p>
-<p>Shipping Total = {{ object.shipping_total }}</p>
-<p>Order Total = {{ object.total }}</p>
-{% else %}
-<div class="row text-center">
-    <div class="col-12 col-md-6">
-        <p class="lead">Login</p>
-        {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
-    </div>
-    <div class="col-12 col-md-6">
-        {% url 'guest_register' as guest_register_url %}
-        Continue as Guest
-        {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url%}
 
-    </div>
-</div>
+    {% if not object.billing_address and object.shipping_address %}
+
+    {% else %}
+        <h1>Checkout</h1>
+        <p>Cart Total = {{ object.cart.total }}</p>
+        <p>Shipping Total = {{ object.shipping_total }}</p>
+        <p>Order Total = {{ object.total }}</p>
+
+    {% endif %}
+{% else %}
+        <div class="row text-center">
+            <div class="col-12 col-md-6">
+                <p class="lead">Login</p>
+                {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
+            </div>
+            <div class="col-12 col-md-6">
+                {% url 'guest_register' as guest_register_url %}
+                Continue as Guest
+                {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url%}
+
+            </div>
+        </div>
 {%endif%}
 
 {% endblock %}

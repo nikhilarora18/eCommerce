@@ -1,5 +1,5 @@
 
-<form method="post" action="{% url 'login' %}">
+<form method="post" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">
     {% csrf_token %}
     {% if next_url %}
         <input type="hidden" name="next"  value="{{ next_url }}" >

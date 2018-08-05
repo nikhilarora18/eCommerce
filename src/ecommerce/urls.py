@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.views import LogoutView
 from . import views
-from accounts.views import login_page,register_page
+from accounts.views import login_page,register_page,guest_register_view
 
 #from products.views import ProductListView , ProductDetailView , ProductFeaturedListView , ProductFeaturedDetailView , ProductDetailSlugView
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('', views.home,name='home'),
     path('about/', views.about,name='about'),
     path('login/', login_page,name='login'),
+    path('register/guest', guest_register_view,name='guest_register'),
     path('logout/', LogoutView.as_view(),name='logout'),
     path('register/', register_page,name='register'),
     path('contact/', views.contact,name='contact'),

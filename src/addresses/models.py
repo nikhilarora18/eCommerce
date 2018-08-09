@@ -12,7 +12,11 @@ class Address(models.Model):
     state = models.CharField(max_length=120)
     country = models.CharField(max_length=120)
     postal_code = models.CharField(max_length=120)
+
     address_line_2 = models.CharField(max_length=120, null=True, blank=True)
 
     def __str__(self):
         return str(self.billing_profile)
+
+    def get_address(self):
+        return "{line1}\n{city}\n{state}\n{country}\n{postal_code}".format(line1=self.address_line_1,city=self.city,state=self.state,country=self.country,postal_code=self.postal_code)

@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.views import LogoutView
 from . import views
-from addresses.views import checkout_address_create_view
+from addresses.views import checkout_address_create_view,checkout_address_reuse_view
 from accounts.views import login_page,register_page,guest_register_view
 
 #from products.views import ProductListView , ProductDetailView , ProductFeaturedListView , ProductFeaturedDetailView , ProductDetailSlugView
@@ -20,6 +20,7 @@ urlpatterns = [
     path('register/', register_page,name='register'),
     path('contact/', views.contact,name='contact'),
     path('checkout/address/create',checkout_address_create_view,name='checkout_address_create'),
+    path('checkout/address/reuse',checkout_address_reuse_view,name='checkout_address_reuse'),
     path('products/', include(('products.urls','products'),namespace='products')),
     path('cart/', include(('carts.urls','carts'),namespace='cart')),
     path('search/', include(('search.urls','search'),namespace='search')),

@@ -2,7 +2,7 @@
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
     {% if in_cart %}
-    <button type="submit" class="btn btn-link btn-sm" style="padding:0px">Remove?</button>
+    <button type="submit" class="btn btn-link btn-sm" style="padding:0px;">Remove?</button>
     {% else %}
             {% if product in cart.products.all %}
             In Cart <button type="submit" class="btn btn-link">Remove?</button>

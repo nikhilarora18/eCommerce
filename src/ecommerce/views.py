@@ -1,8 +1,9 @@
-from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .forms import ContactForm,LoginForm ,RegisterForm
-from django.contrib.auth import authenticate,login
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+
+from .forms import ContactForm, LoginForm, RegisterForm
+
 
 #User=get_user_model()
 

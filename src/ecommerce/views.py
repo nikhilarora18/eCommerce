@@ -47,10 +47,10 @@ def login_page(request):
     context = {
         "form": form
     }
-    print("User logged in")
-    print(request.user.is_authenticated)
+    #print("User logged in")
+    #print(request.user.is_authenticated)
     if form.is_valid():
-        print(form.cleaned_data)
+        #print(form.cleaned_data)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         user = authenticate(request, username=username, password=password)
@@ -72,7 +72,7 @@ def register_page(request):
         "form": form
     }
     if form.is_valid():
-        print(form.cleaned_data)
+        #print(form.cleaned_data)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         email = form.cleaned_data.get("email")

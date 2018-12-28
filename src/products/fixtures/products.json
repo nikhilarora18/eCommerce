@@ -1,0 +1,72 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Tshirt",
+        "slug": "tshirt",
+        "description": "This is a cool tshrt",
+        "price": "25.00",
+        "image": "products/39654232300/39654232300.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2018-07-11T08:22:34.210Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Hat",
+        "slug": "hat",
+        "description": "This protects you from heat",
+        "price": "10.20",
+        "image": "products/27229239138/27229239138.jpg",
+        "featured": false,
+        "active": true,
+        "timestamp": "2018-07-11T08:22:34.210Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "SuperComputer",
+        "slug": "supercomputer",
+        "description": "this is the most advanced sc",
+        "price": "339.99",
+        "image": "products/28261687781/28261687781.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2018-07-11T08:22:34.210Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Shoes",
+        "slug": "shoes",
+        "description": "This is an awesome pair of fantastic shoes",
+        "price": "25.00",
+        "image": "products/34838362326/34838362326.jpg",
+        "featured": true,
+        "active": true,
+        "timestamp": "2018-07-14T06:00:45.054Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Kurta",
+        "slug": "kurta",
+        "description": "Festive season is always better in indian ethics",
+        "price": "58.99",
+        "image": "",
+        "featured": true,
+        "active": true,
+        "timestamp": "2018-11-11T06:41:08.128Z"
+    }
+}
+]

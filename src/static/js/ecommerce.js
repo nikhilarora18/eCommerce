@@ -91,7 +91,7 @@ $(document).ready(function () {
 
     }
 
-    //cart stuff
+    //cart stuff (product add and remove)
     var productForm = $(".form-product-ajax")
     productForm.submit(function (event) {
         event.preventDefault();
@@ -139,13 +139,15 @@ $(document).ready(function () {
         var refreshCartUrl = 'api/cart/';
         var refreshCartMethod = "GET";
         var data = {};
+         console.log("ajax reached")
         $.ajax({
             url: refreshCartUrl,
             method: refreshCartMethod,
             data: data,
             success: function (data) {
-                console.log("success")
+                console.log("scess")
                 if (data.products.length > 0) {
+                    console.log("success ajax")
                     var hiddenCartItemRemoveForm = $(".cart-item-remove-form")
                     productRows.html("")
                     var i = data.products.length
@@ -160,6 +162,7 @@ $(document).ready(function () {
                     cartBody.find(".cart-total").text(data.total)
                 }
                 else {
+                    console.log("refreshed")
                     window.location.href = currentUrl
                 }
             },

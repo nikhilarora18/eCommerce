@@ -11,6 +11,7 @@ from django.http import JsonResponse
 
 
 def cart_home(request):
+    print('home')
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     return render(request, 'carts/home.html', {"cart": cart_obj})
 
@@ -41,7 +42,9 @@ def cart_update(request):
             "removed": not added,
             "cartItemCount": cart_obj.products.count(),
         }
-        return JsonResponse(json_data)
+        print("ajax called")
+        return JsonResponse(json_data, status=200)
+    print("ajax not called")
     return redirect('cart:home')
 
 

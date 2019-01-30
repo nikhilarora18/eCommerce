@@ -19,7 +19,7 @@ class CartManager(models.Manager):
                 cart_obj.save()
         else:
             cart_obj = Cart.objects.new(user=request.user)
-            new_obj = False
+            new_obj = True
             request.session['cart_id'] = cart_obj.id
         return cart_obj, new_obj
 

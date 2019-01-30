@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # our apps
-    'products', 'search', 'tags', 'carts', 'orders', 'accounts', 'billing', 'addresses'
+    'products', 'search', 'tags', 'carts', 'orders', 'accounts', 'billing', 'addresses', 'analytics'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
 
 LOGOUT_REDIRECT_URL = '/login/'
+
+FORCE_SESSION_TO_ONE = False
+FORCE_INACTIVE_USER_ENDSESSION = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

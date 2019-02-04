@@ -145,7 +145,7 @@ $(document).ready(function () {
             method: refreshCartMethod,
             data: data,
             success: function (data) {
-                console.log("scess")
+                console.log("sucess")
                 if (data.products.length > 0) {
                     console.log("success ajax")
                     var hiddenCartItemRemoveForm = $(".cart-item-remove-form")

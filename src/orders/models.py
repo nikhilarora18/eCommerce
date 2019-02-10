@@ -16,7 +16,7 @@ ORDER_STATUS_CHOICES = (
 
 class OrderManager(models.Manager):
     def new_or_get(self, billing_profile, cart_obj):
-        qs = self.get_queryset().filter(billing_profile=billing_profile, cart=cart_obj, active=True,status='created')
+        qs = self.get_queryset().filter(billing_profile=billing_profile, cart=cart_obj, active=True, status='created')
         if qs.count() == 1:
             obj = qs.first()
             created = False
@@ -33,8 +33,10 @@ class Order(models.Model):
     shipping_total = models.DecimalField(default=5.00, max_digits=100, decimal_places=2)
     total = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True, on_delete=models.CASCADE)
-    shipping_address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE,related_name="shipping_address")
-    billing_address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE,related_name="billing_address")
+    shipping_address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE,
+                                         related_name="shipping_address")
+    billing_address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE,
+                                        related_name="billing_address")
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -42,22 +44,22 @@ class Order(models.Model):
 
     objects = OrderManager()
 
-
     def update_total(self):
         self.total = math.fsum([self.shipping_total, self.cart.total])
         self.save()
         return
 
     def check_done(self):
-        if self.billing_address and self.shipping_address and self.billing_profile and self.total>0:
+        if self.billing_address and self.shipping_address and self.billing_profile and self.total > 0:
             return True
         return False
 
     def mark_paid(self):
         if self.check_done():
-            self.status='paid'
+            self.status = 'paid'
             self.save()
         return self.status
+
 
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:

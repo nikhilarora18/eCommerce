@@ -8,6 +8,7 @@ from . import views
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
 from accounts.views import LoginView, RegisterView, guest_register_view
 from billing.views import payment_method_view, payment_method_createview
+from marketing.views import MarketingPreferenceUpdateView, MailchimpWebhookView
 
 # from products.views import ProductListView , ProductDetailView , ProductFeaturedListView ,
 #  ProductFeaturedDetailView , ProductDetailSlugView
@@ -29,13 +30,10 @@ urlpatterns = [
     path('products/', include(('products.urls', 'products'), namespace='products')),
     path('cart/', include(('carts.urls', 'carts'), namespace='cart')),
     path('search/', include(('search.urls', 'search'), namespace='search')),
-    # url(r'^products/', include('products.urls' ,namespace='products')),
-    # path('products/<int:pk>/', ProductDetailView.as_view()),
-    # path('products/<slug:slug>/', ProductDetailSlugView.as_view()),
-    # path('featured/', ProductFeaturedListView.as_view()),
-    # path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),
+    path('settings/email/', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
+    path('webhooks/mailchimp/', MailchimpWebhookView.as_view(), name='webhooks-mailchimp')
 ]
 
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
